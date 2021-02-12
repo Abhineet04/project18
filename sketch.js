@@ -73,6 +73,8 @@ function draw() {
   background(255);
   text("Score: "+ score, width-100,height-150);
   
+  trex.collide(invisibleGround);
+  
   if (gameState===PLAY){
     score = score + Math.round(getFrameRate()/60);
     ground.velocityX = -(6 + 3*score/100);
@@ -88,7 +90,6 @@ function draw() {
       ground.x = ground.width/2;
     }
   
-    trex.collide(invisibleGround);
     spawnClouds();
     spawnObstacles();
   
